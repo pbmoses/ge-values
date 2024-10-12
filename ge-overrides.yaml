@@ -57,7 +57,7 @@ automountServiceAccountToken: true
 ## Create HorizontalPodAutoscaler object for deployment type
 #
 autoscaling:
-  enabled: true 
+  enabled: false 
   minReplicas: 1
   maxReplicas: 3
   targetCPU: "70"
