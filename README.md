@@ -75,7 +75,7 @@ spec:
   project: default
 ```
 ### The overrides file
-[Values that you have determined are best for your environment](./ge-overrides.yaml)
+[Values that you have determined are best for your environment](https://github.com/pbmoses/helm-charts/tree/main/charts/grafana/ge-overrides.yaml)
 
 Deploy each of the secrets `kubectl create -f <manifest>`. You can either apply the ArgoCD application imperatively `kubectl create -f application.yaml`or also place this in a repo to allow ArgoCD to sync from it. Your values file should be present in the source that ArgoCD is pointing to. 
 
