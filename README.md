@@ -68,4 +68,7 @@ spec:
       ref: values
   project: default
 ```
+### The overrides file
 
+
+Deploy each of the secrets. You can either apply the ArgoCD application imperatively or also place this in a repo to allow ArgoCD to sync from it. Your values file should be present in the source that ArgoCD is pointing to. 
