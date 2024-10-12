@@ -80,10 +80,17 @@ Deploy each of the secrets `kubectl create -f <manifest>`. You can either apply 
 
 Upon successful syncronization and deployment of the Grafana front end, you can retrieve the initial admin password with the following command: `kubectl get secret admin-user -o jsonpath="{.data.adminPassword}" | base64 -d`
 
-### The ArgoCD application deployed and sync'd
+### The ArgoCD base application deployed and sync'd
+<img width="1253" alt="Screenshot 2024-10-12 at 9 48 37 AM" src="https://github.com/user-attachments/assets/d403af90-8af5-4151-8091-a693f0dd4257">
+
+
+### The Grafana Enterprise application deployed and sync'd
 <img width="1294" alt="Screenshot 2024-10-12 at 9 33 41 AM" src="https://github.com/user-attachments/assets/3b381886-ee6b-4a5d-9b0b-244c90cedb20">
 
 
 ### A deployed Grafana Enterprise front end with successful login 
 <img width="1444" alt="Screenshot 2024-10-12 at 9 08 44 AM" src="https://github.com/user-attachments/assets/a7242f70-2649-4e50-9518-01307dcefb1c">
 
+### Following this, check in for similar demos for Mimir, Loki, Tempo, Datasources and Dashboards
+
+* Disclaimer. Best efforts are approached and we're all human. Use as a foundation, deploy, verify and approve in your own environment with developed best practices  similar to a pattern of sandbox/dev, staging and prod (or similar). 
