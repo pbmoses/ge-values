@@ -1,6 +1,6 @@
 # The purpose of this repo is to deploy the Grafana (viz) Enterprise Helm chart from ArgoCD with custom values utilizing multiple sources. 
-To note: These repose were developed for rapid redeployment of the Grafana Enterprise stack based on the repo maintainers knowledge and experience around Kubernetes, this is not official Grafana Documentation. 
-A rapidly redployable stack should be present in enterprise environments, these methods can be used as a foundation but should not be the be all end all of MTTR. 
+To note: These repos were developed for rapid redeployment of the Grafana Enterprise stack (there will be one for each of LGTM )based on the repo maintainers knowledge and experience around Kubernetes, this is not official Grafana Documentation. These can also be a basis for the OSS version. 
+A rapidly redployable stack should be present in any enterprise environment, these examples can be used as a foundation but should not be the be all end all of MTTR. 
 
 The demos rely on 2 base ites:
 - A working Kubernetes cluster of your choice.
@@ -30,5 +30,42 @@ type: Opaque
 ```
 
 ### The license file secret
+```bash
+apiVersion: v1
+data:
+  grafana-prod.jwt: <your license file base64 encoded>
+kind: Secret
+metadata:
+  name: ge-license
+  namespace: grafana-prod
+type: Opaque
+```
 
+### The ArgoCD Application
+```bash
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: grafana-enterprise
+  namespace: argocd
+spec:
+  destination:  ### where this will be deployed on your cluster
+    namespace: grafana-prod    
+    server: https://kubernetes.default.svc
+  sources:
+###maintained main Helm chart directory
+    - repoURL: https://grafana.github.io/helm-charts
+###chart version
+      targetRevision: 8.5.2
+      chart: grafana
+      helm:
+###this will be YOUR git repo path with your overrides file
+        valueFiles:
+          - $values/charts/grafana/ge-overrides.yaml
+### Your Git Repo 
+    - repoURL: https://github.com/pbmoses/helm-charts.git
+      targetRevision: HEAD 
+      ref: values
+  project: default
+```
 
