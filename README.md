@@ -73,7 +73,7 @@ spec:
 ### The overrides file
 [Values that you have determined are best for your environment](./ge-overrides.yaml)
 
-Deploy each of the secrets `kubectl create -f <manifest`. You can either apply the ArgoCD application imperatively `kubectl create -f application.yaml`or also place this in a repo to allow ArgoCD to sync from it. Your values file should be present in the source that ArgoCD is pointing to. 
+Deploy each of the secrets `kubectl create -f <manifest>`. You can either apply the ArgoCD application imperatively `kubectl create -f application.yaml`or also place this in a repo to allow ArgoCD to sync from it. Your values file should be present in the source that ArgoCD is pointing to. 
 
 Upon successful syncronization and deployment of the Grafana front end, you can retrieve the initial admin password with the following command: `kubectl get secret admin-user -o jsonpath="{.data.adminPassword}" | base64 -d`
 
