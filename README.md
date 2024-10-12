@@ -2,7 +2,7 @@
 To note: These repos were developed for rapid redeployment of the Grafana Enterprise stack (there will be one for each of LGTM )based on the repo maintainers knowledge and experience around Kubernetes, this is not official Grafana Documentation. These can also be a basis for the OSS version. 
 A rapidly redployable stack should be present in any enterprise environment, these examples can be used as a foundation but should not be the be all end all of MTTR. 
 
-In the end, I would like to setup 4 demo paths, the stack, the datasources and the dashboards. As will all things OpenSource, there are many ways these can be done. The end objective is to be sure you learn and come away from this with more confidence and knowledge for your day to day computing experiences. 
+In the end, I would like to setup 3 demo paths, the stack, the datasources and the dashboards. As will all things OpenSource, there are many ways these can be done. The end objective is to be sure you learn and come away from this with more confidence and knowledge for your day to day computing experiences. 
 
 The demos rely on 2 base ites:
 - A working Kubernetes cluster of your choice.
