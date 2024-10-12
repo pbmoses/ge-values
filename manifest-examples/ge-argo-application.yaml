@@ -1,0 +1,24 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: grafana-enterprise
+  namespace: argocd
+spec:
+  destination:  ### where this will be deployed on your cluster
+    namespace: grafana-prod    
+    server: https://kubernetes.default.svc
+  sources:
+###maintained main Helm chart directory
+    - repoURL: https://grafana.github.io/helm-charts
+###chart version
+      targetRevision: 8.5.2
+      chart: grafana
+      helm:
+###this will be YOUR git repo path with your overrides file
+        valueFiles:
+          - $values/charts/grafana/ge-overrides.yaml
+### Your Git Repo 
+    - repoURL: https://github.com/pbmoses/helm-charts.git
+      targetRevision: HEAD 
+      ref: values
+  project: default
