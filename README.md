@@ -8,7 +8,7 @@ The core Helm charts are already created, we simply point the ACD app to the mai
 ## End Goals
 In the end, I would like to setup 3 demo paths, the stack, the datasources and the dashboards. As will all things OpenSource, there are many ways these can be done. The end objective is to be sure you learn and come away from this with more confidence and knowledge for your day to day computing experiences. 
 
-The demos rely on 2 base ites:
+The demos rely on 2 base items:
 - A working Kubernetes cluster of your choice.
 - ArgoCD installed and working properly.
   
